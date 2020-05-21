@@ -1,6 +1,7 @@
 import Layout from '../components/Layout';
 import { withRouter } from 'next/router';
 import SigninComponent from '../components/auth/SigninComponent';
+import HomeBar from '../components/HomeBar';
 
 const Signin = ({ router }) => {
     const showRedirectMessage = () => {
@@ -13,7 +14,8 @@ const Signin = ({ router }) => {
 
     return (
         <Layout>
-            <div className="container-fluid">
+          <HomeBar />
+            <div id="signin-container" className="container-fluid">
                 <h2 className="text-center pt-4 pb-4">Signin</h2>
 
                 <div className="row">

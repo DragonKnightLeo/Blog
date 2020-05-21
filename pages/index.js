@@ -1,27 +1,32 @@
 import Layout from '../components/Layout';
 import Link from 'next/link';
+import Header from '../components/Header';
 
 const Index = () => {
     return (
       <Layout>
           <article className="overflow-hidden">
+            <section>
               <div className="container">
+                <Header/>
                   <div className="row">
                       <div className="col-md-12 text-right">
-                          <h1 id="header">
-                              Azimuth Blog
-                          </h1>
-                          <p id="subheader">Are cryptocurrencies the money of the future or just another short term investment? What is hidden under the hood? This guide will show you the ins and outs of the crypto world.</p>
+                        <img id="home-img" src="static/images/robot.png" alt="robot"/>
+                        <div className="vr-1"></div>
+                        <div className="vr-2"></div>
+                        <div className="vr-3"></div>
+                        <h3 id="min-title">HERE AND NOW</h3>
+                        <h1 id="maj-title">THE FUTURE</h1>
+                        <div id="blue-box"></div>
+                        <p id="subtitle">For people that think about the future, about how to improve their lives, as well as the lives of others.</p>
+                        <div id="angle-1"></div>
+                        <p id="description-1">GRAPHENE EXOSKELETON</p>
+                        <div id="angle-2"></div>
+                        <p id="description-2">ARTIFICIAL INTELLIGENCE</p>
                       </div>
-                      <div class="science">
-                        <div class="isthis">
-                          <span class="thisisscienceiguess"></span>
-                          <span class="andthisistoo"></span>
-                          <span class="thisistooofcourse"></span>
-                        </div>
-                      </div>
-                  </div>
+                    </div>
               </div>
+            </section>
           </article>
       </Layout>
     );

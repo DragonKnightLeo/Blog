@@ -46,12 +46,12 @@ const Search = () => {
     const searchForm = () => (
         <form onSubmit={searchSubmit}>
             <div className="row">
-                <div className="float-left pl-2">
-                    <input type="search" className="form-control" placeholder="Search blogs" onChange={handleChange} />
+                <div className="float-left pl-3">
+                    <input id="search-input" type="search" className="form-control" placeholder="Search blogs" onChange={handleChange} />
                 </div>
 
-                <div className="float-left pl-2">
-                    <button className="btn btn-block btn-outline-primary" type="submit">
+                <div className="float-left pl-3">
+                    <button id="search-button"  type="submit">
                         Search
                     </button>
                 </div>

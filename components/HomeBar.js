@@ -17,14 +17,8 @@ import {
   DropdownMenu,
   DropdownItem
 } from 'reactstrap';
-import '.././node_modules/nprogress/nprogress.css';
-import Search from './blog/Search';
 
-Router.onRouteChangeStart = url => NProgress.start();
-Router.onRouteChangeComplete = url => NProgress.done();
-Router.onRouteChangeError = url => NProgress.done();
-
-const Header = () => {
+const HomeBar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => {
@@ -53,20 +47,7 @@ const Header = () => {
               </NavItem>
             </React.Fragment>
 
-            {!isAuth() && (
-              <React.Fragment>
-                <NavItem>
-                  <Link href="/signin">
-                    <NavLink id="navitem">Signin</NavLink>
-                  </Link>
-                </NavItem>
-                <NavItem>
-                  <Link href="/signup">
-                    <NavLink id="navitem">Signup</NavLink>
-                  </Link>
-                </NavItem>
-              </React.Fragment>
-            )}
+
 
             {isAuth() && isAuth().role === 0 && (
               <NavItem>
@@ -83,20 +64,11 @@ const Header = () => {
                 </Link>
               </NavItem>
             )}
-
-            {isAuth() && (
-              <NavItem>
-                <NavLink id="navitem" style={{ cursor: 'pointer' }} onClick={() => signout(() => Router.replace(`/signin`))}>
-                  Signout
-                </NavLink>
-              </NavItem>
-            )}
           </Nav>
         </Collapse>
       </Navbar>
-      <Search />
     </React.Fragment>
   );
 };
 
-export default Header;
+export default HomeBar;
