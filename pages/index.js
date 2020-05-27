@@ -5,7 +5,7 @@ import Header from '../components/Header';
 const Index = () => {
     return (
       <Layout>
-          <article className="overflow-hidden">
+          <article className="Home">
             <section>
               <div className="container">
                 <Header/>
@@ -18,6 +18,7 @@ const Index = () => {
                         <h3 id="min-title">HERE AND NOW</h3>
                         <h1 id="maj-title">THE FUTURE</h1>
                         <div id="blue-box"></div>
+                        <button id="button-go">Let's Go</button>
                         <p id="subtitle">For people that think about the future, about how to improve their lives, as well as the lives of others.</p>
                         <div id="angle-1"></div>
                         <p id="description-1">GRAPHENE EXOSKELETON</p>

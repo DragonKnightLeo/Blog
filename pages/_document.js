@@ -14,6 +14,7 @@ class MyDocument extends Document {
           <link rel="stylesheet" href="/static/css/styles.css" />
           <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet" />
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/react-quill/0.4.1/quill.snow.css"/>
+          <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet" />
         </Head>
         <body>
           <Main />

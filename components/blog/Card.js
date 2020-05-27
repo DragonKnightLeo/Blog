@@ -19,16 +19,9 @@ const Card = ({ blog }) => {
         ));
 
     return (
-        <div className="lead pb-4">
-            <header>
-                <Link href={`/blogs/${blog.slug}`}>
-                    <a>
-                        <h2 className="pt-3 pb-3 font-weight-bold">{blog.title}</h2>
-                    </a>
-                </Link>
-            </header>
-            <section>
-                <p className="mark ml-1 pt-2 pb-2">
+        <div id="blog-list-card">
+            <section id="blog-card-written">
+                <p>
                     Written by{' '}
                     <Link href={`/profile/${blog.postedBy.username}`}>
                         <a>{blog.postedBy.username}</a>
@@ -36,33 +29,32 @@ const Card = ({ blog }) => {
                     | Published {moment(blog.updatedAt).fromNow()}
                 </p>
             </section>
-            <section>
+            <header id="blog-card-title">
+                <Link href={`/blogs/${blog.slug}`}>
+                    <a>
+                        <h2>{blog.title}</h2>
+                    </a>
+                </Link>
+            </header>
+            <section id="blog-card-img-container">
+              <img
+                  id="blog-card-img"
+                  src={`${API}/blog/photo/${blog.slug}`}
+                  alt={blog.title}
+              />
+            </section>
+            <section id="blog-card-content">
+                <div  className="pb-3">{renderHTML(blog.excerpt)}</div>
+                <Link href={`/blogs/${blog.slug}`}>
+                  <span id="blog-card-button-container">
+                    <a id="blog-card-button" className="pt-2">Read More</a>
+                  </span>
+                </Link>
+            </section>
+            <section id="blog-card-tags-cats">
                 {showBlogCategories(blog)}
                 {showBlogTags(blog)}
-                <br />
-                <br />
             </section>
-
-            <div className="row">
-                <div className="col-md-4">
-                    <section>
-                        <img
-                            className="img img-fluid"
-                            style={{ maxHeight: 'auto', width: '100%' }}
-                            src={`${API}/blog/photo/${blog.slug}`}
-                            alt={blog.title}
-                        />
-                    </section>
-                </div>
-                <div className="col-md-8">
-                    <section>
-                        <div className="pb-3">{renderHTML(blog.excerpt)}</div>
-                        <Link href={`/blogs/${blog.slug}`}>
-                            <a className="btn btn-primary pt-2">Read more</a>
-                        </Link>
-                    </section>
-                </div>
-            </div>
         </div>
     );
 };

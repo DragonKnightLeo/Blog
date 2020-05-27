@@ -4,6 +4,7 @@ import { withRouter } from 'next/router';
 import Layout from '../../components/Layout';
 import { useState } from 'react';
 import { listBlogsWithCategoriesAndTags } from '../../actions/blog';
+import HomeBar from '../../components/HomeBar';
 import Card from '../../components/blog/Card';
 import { API, DOMAIN, APP_NAME, FB_APP_ID } from '../../config';
 
@@ -55,7 +56,7 @@ const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
             size > 0 &&
             size >= limit && (
                 <button onClick={loadMore} className="btn btn-outline-primary btn-lg">
-                    Load mmore
+                    Load More
                 </button>
             )
         );
@@ -99,6 +100,7 @@ const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
 
     return (
         <React.Fragment>
+        <HomeBar />
             {head()}
             <Layout>
                 <main>
@@ -106,11 +108,12 @@ const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
                         <header>
                             <div className="col-md-12 pt-3">
                                 <h1 className="display-4 font-weight-bold text-center">
-                                    Programming blogs and tutorials
+                                    List of All Blogs
                                 </h1>
                             </div>
-                            <section>
-                                <div className="pb-5 text-center">
+                            <section id="container-cats-tags">
+                                <h3>Filter by Categories and Tags</h3>
+                                <div id="cat-tag-container">
                                     {showAllCategories()}
                                     <br />
                                     {showAllTags()}
@@ -119,7 +122,7 @@ const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
                         </header>
                     </div>
                     <div className="container-fluid">{showAllBlogs()}</div>
-                    <div className="container-fluid">{showLoadedBlogs()}</div>
+                    <div>{showLoadedBlogs()}</div>
                     <div className="text-center pt-5 pb-5">{loadMoreButton()}</div>
                 </main>
             </Layout>
