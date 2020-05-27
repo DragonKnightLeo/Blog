@@ -108,11 +108,11 @@ const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
                         <header>
                             <div className="col-md-12 pt-3">
                                 <h1 className="display-4 font-weight-bold text-center">
-                                    List of All Blogs
+                                    What's New
                                 </h1>
                             </div>
                             <section id="container-cats-tags">
-                                <h3>Filter by Categories and Tags</h3>
+                                <h3 id="filter-cat-tag-title">Filter by Categories and Tags</h3>
                                 <div id="cat-tag-container">
                                     {showAllCategories()}
                                     <br />

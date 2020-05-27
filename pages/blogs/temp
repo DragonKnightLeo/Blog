@@ -1,0 +1,25 @@
+<div className="container-fluid">
+  <section id="article-container">
+      <div className="row" style={{ marginTop: '-30px' }}>
+          <img
+              id="article-img"
+              src={`${API}/blog/photo/${blog.slug}`}
+              alt={blog.title}
+              className="img img-fluid featured-image"
+          />
+      </div>
+  </section>
+</div>
+
+
+<div className="container">
+    <section id="article-container">
+        <div className="col-md-12 lead">{renderHTML(blog.body)}</div>
+    </section>
+</div>
+
+
+<div id="article-container">
+    <h4 className="text-center pt-5 pb-5 h2">Related blogs</h4>
+    <div className="row">{showRelatedBlog()}</div>
+</div>

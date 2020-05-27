@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import HomeBar from '../../components/HomeBar';
 import Layout from '../../components/Layout';
 import { useState, useEffect } from 'react';
 import { singleBlog, listRelated } from '../../actions/blog';
@@ -48,14 +49,14 @@ const SingleBlog = ({ blog, query }) => {
     const showBlogCategories = blog =>
         blog.categories.map((c, i) => (
             <Link key={i} href={`/categories/${c.slug}`}>
-                <a className="btn btn-primary mr-1 ml-1 mt-3">{c.name}</a>
+                <a className="btn" style={{ color: "white", fontFamily: 'Abel'}}>{c.name}</a>
             </Link>
         ));
 
     const showBlogTags = blog =>
         blog.tags.map((t, i) => (
             <Link key={i} href={`/tags/${t.slug}`}>
-                <a className="btn btn-outline-primary mr-1 ml-1 mt-3">{t.name}</a>
+                <a className="btn" style={{ color: "white", fontFamily: 'Abel'}}>{t.name}</a>
             </Link>
         ));
 
@@ -71,57 +72,30 @@ const SingleBlog = ({ blog, query }) => {
 
     return (
         <React.Fragment>
+
             {head()}
             <Layout>
+              <HomeBar />
                 <main>
-                    <article>
-                        <div className="container-fluid">
-                            <section>
-                                <div className="row" style={{ marginTop: '-30px' }}>
-                                    <img
-                                        src={`${API}/blog/photo/${blog.slug}`}
-                                        alt={blog.title}
-                                        className="img img-fluid featured-image"
-                                    />
-                                </div>
-                            </section>
-
-                            <section>
-                                <div className="container">
-                                    <h1 className="display-2 pb-3 pt-3 text-center font-weight-bold">{blog.title}</h1>
-                                    <p className="lead mt-3 mark">
-                                        Written by{' '}
-                                        <Link href={`/profile/${blog.postedBy.username}`}>
-                                            <a>{blog.postedBy.username}</a>
-                                        </Link>{' '}
-                                        | Published {moment(blog.updatedAt).fromNow()}
-                                    </p>
-
-                                    <div className="pb-3">
-                                        {showBlogCategories(blog)}
-                                        {showBlogTags(blog)}
-                                        <br />
-                                        <br />
-                                    </div>
-                                </div>
-                            </section>
+                    <section id="article">
+                      <section id="article-container-header">
+                        <div style={{ color: "white" }}>
+                            {showBlogCategories(blog)}
+                            /
+                            {showBlogTags(blog)}
+                            <br />
+                            <br />
                         </div>
-
-                        <div className="container">
-                            <section>
-                                <div className="col-md-12 lead">{renderHTML(blog.body)}</div>
-                            </section>
-                        </div>
-
-                        <div className="container">
-                            <h4 className="text-center pt-5 pb-5 h2">Related blogs</h4>
-                            <div className="row">{showRelatedBlog()}</div>
-                        </div>
-
-                        <div className="container pb-5">
-                            <p>show comments</p>
-                        </div>
-                    </article>
+                        <h1 className="spb-3 pt-3 text-centers">{blog.title}</h1>
+                        <p className="lead mt-3 mark">
+                            Written by{' '}
+                            <Link href={`/profile/${blog.postedBy.username}`}>
+                                <a>{blog.postedBy.username}</a>
+                            </Link>{' '}
+                            | Published {moment(blog.updatedAt).fromNow()}
+                        </p>
+                      </section>
+                    </section>
                 </main>
             </Layout>
         </React.Fragment>
