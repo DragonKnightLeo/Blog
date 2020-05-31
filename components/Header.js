@@ -43,7 +43,7 @@ const Header = () => {
             <React.Fragment>
               <NavItem>
                 <Link href="/blogs">
-                  <NavLink id="navitem-blogs">Blogs</NavLink>
+                  <NavLink id="navitem-blogs">Articles</NavLink>
                 </Link>
               </NavItem>
               <NavItem>

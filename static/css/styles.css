@@ -8,24 +8,24 @@ body {
   display: flex;
   justify-content: center;
 }
-.Home {
+.home-container {
   display: flex;
   width: 90vw;
-  height: 65vh;
+  height: 800px;
   max-width: 1500px;
-  border-radius: 2%;
+  border-radius: 30px;
   background: black;
   box-shadow: 3px 100px 75px -25px #201e28;
   justify-content: center;
   margin-top: 10%;
+  overflow: hidden;
 }
-section {
-  margin-top: 1%;
+.home-container section {
+  margin: 1.5%;
   width: 88vw;
-  height: 63vh;
-  border-radius: 2%;
+  height: 95%;
+  border-radius: 20px;
   background:	#11121b;
-
 }
 /* Header */
 #navitem {
@@ -48,10 +48,25 @@ section {
 }
 
 /* Title Page */
+#home-img {
+  position: relative;
+  bottom: 40px;
+  height: 641px;
+  width: 575px;
+  filter: drop-shadow( 3px -20px 20px rgba(255,255,255, 0.15)) contrast(125%);
+  overflow: hidden;
+}
+.search-bar {
+  position: relative;
+  top: -15px;
+  left: 19px;
+  font-family: 'Abel', sans-serif;
+}
 #min-title {
   position: relative;
   z-index: 3;
-  top: -500px;
+  bottom: 30rem;
+  left: 60%;
   font-size: 3rem;
   color: white;
   font-family: TitleFont;
@@ -60,7 +75,8 @@ section {
 #maj-title {
   position: relative;
   z-index: 3;
-  top: -500px;
+  bottom: 30rem;
+  left: 50%;
   font-size: 5.5rem;
   color: white;
   font-family: TitleFont;
@@ -71,11 +87,22 @@ section {
   z-index: 2;
   height: 175px;
   width: 55px;
-  background-color: darkblue;
+  background-color: #0017aa;
   float: right;
-  top: -675px;
+  left: 20px;
+  bottom: 41rem;
 }
-
+#button-go {
+  position: relative;
+  bottom: 27.5rem;
+  left: 50%;
+  border: 1.5px solid rgba(255,255,255, 0.1);
+  padding: 10px 20px 10px 20px;
+  background: transparent;
+  color: white;
+  font-size: 13px;
+  text-align: center;
+}
 #subtitle {
   position: relative;
   z-index: 3;
@@ -90,7 +117,7 @@ section {
 #angle-1 {
   position: relative;
   z-index: 3;
-  top: -500px;
+  bottom: 38.5rem;
   left: 305px;
   height: 30px;
   width: 135px;
@@ -103,16 +130,16 @@ section {
 #description-1 {
   position: relative;
   z-index: 3;
-  top: -550px;
-  right: 54%;
+  bottom: 41.5rem;
+  left: 20.25rem;
   color: grey;
   font-size: 0.7rem;
 }
 #angle-2 {
   position: relative;
   z-index: 3;
-  top: -875px;
-  left: 5px;
+  bottom: 55rem;
+  left: 3.5rem;
   height: 80px;
   width: 30px;
   border-bottom: 1px solid grey;
@@ -124,47 +151,36 @@ section {
 #description-2 {
   position: relative;
   z-index: 3;
-  top: -945px;
-  right: 93%;
+  bottom: 59.25rem;
+  left: -0.5rem;
   color: grey;
   font-size: 0.7rem;
 }
-#home-img {
-  float: left;
-  margin-left: -65px;
-  margin-top: -23px;
-  height: 700px;
-  width: 650px;
-  filter: drop-shadow( 3px -20px 20px rgba(255,255,255, 0.15)) contrast(125%);
-}
 .vr-1 {
-  margin-left: 100px;
+  position: relative;
+  z-index: 2;
+  bottom: 74.75rem;
+  left: 10%;
   border-left: 1.5px solid rgba(255,255,255, 0.1);
-  height: 63vh;
-  margin-top: -158px;
+  height: 760px;
 }
 .vr-2 {
-  margin-top: -63vh;
-  margin-left: 550px;
+  position: relative;
+  bottom: 122.25rem;
+  left: 50%;
   border-left: 1.5px solid rgba(255,255,255, 0.1);
-  height: 63vh;
+  height: 760px;
 }
 .vr-3 {
-  margin-top: -63vh;
-  margin-left: 1000px;
-  border-left: 1.5px solid rgba(255,255,255, 0.1);
-  height: 63vh;
-}
-#button-go {
   position: relative;
-  top: -42%;
-  right: 5%;
-  border: 1.5px solid rgba(255,255,255, 0.1);
-  padding: 10px 20px 10px 20px;
-  background: transparent;
-  color: white;
-  font-size: 13px;
-  text-align: center;
+  bottom: 169.75rem;
+  left: 90%;
+  border-left: 1.5px solid rgba(255,255,255, 0.1);
+  height: 760px;
+}
+/* What's New Article Cards */
+#new-article-list {
+  max-width: 1500px;
 }
 /* Search Bar */
 #search-input {
@@ -213,6 +229,7 @@ section {
 #container-cats-tags {
   height: 175px;
   margin-bottom: 10px;
+  max-width: 1500px;
   background-color: #11121b;
   border-radius: 10px;
 }
@@ -233,8 +250,23 @@ section {
   color: white;
 }
 
-
-
+/* Home page Card */
+#home-card-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+#home-card {
+  width: 350px;
+  height: 550px;
+  border: 1.5px solid white;
+}
+#home-card-title {
+  width: 300px;
+  position: relative;
+  top: 25px;
+  left: 20px;
+  text-shadow: 1px 1px 2px black;
+}
 /* Blog Card */
 article {
   display: flex;
