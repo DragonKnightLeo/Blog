@@ -40,7 +40,7 @@ const Index = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
   const showAllBlogs = () => {
       return blogs.map((blog, i) => {
           return (
-              <article id="home-card" style={{ backgroundImage: `url(${API}/blog/photo/${blog.slug})`}} key={i}>
+              <article id="home-card" style={{ backgroundImage: `url(${API}/blog/photo/${blog.slug})`, backgroundPosition: "center"}} key={i}>
                   <HomeCard blog={blog} />
                   <hr />
               </article>

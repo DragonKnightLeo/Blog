@@ -72,31 +72,45 @@ const SingleBlog = ({ blog, query }) => {
 
     return (
         <React.Fragment>
-
             {head()}
             <Layout>
+              <div id="article-layout">
               <HomeBar />
-                <main>
-                    <section id="article">
-                      <section id="article-container-header">
-                        <div style={{ color: "white" }}>
-                            {showBlogCategories(blog)}
-                            /
-                            {showBlogTags(blog)}
-                            <br />
-                            <br />
-                        </div>
-                        <h1 className="spb-3 pt-3 text-centers">{blog.title}</h1>
-                        <p className="lead mt-3 mark">
-                            Written by{' '}
-                            <Link href={`/profile/${blog.postedBy.username}`}>
-                                <a>{blog.postedBy.username}</a>
-                            </Link>{' '}
-                            | Published {moment(blog.updatedAt).fromNow()}
-                        </p>
-                      </section>
+                <div id="article-background"><img id="article-background-image" src="../static/images/android.jpg"></img></div>
+                <main id="article">
+                  <section id="article-container-img">
+                      <div className="row" style={{ marginTop: '-30px' }}>
+                          <img
+                              src={`${API}/blog/photo/${blog.slug}`}
+                              alt={blog.title}
+                              className="img img-fluid featured-image"
+                          />
+                      </div>
+                  </section>
+                  <section id="article-container-header">
+                    <div style={{ color: "white" }}>
+                        {showBlogCategories(blog)}
+                        /
+                        {showBlogTags(blog)}
+                    </div>
+                    <h1 className="spb-3 pt-3 text-centers" style={{ color: "white"}}>{blog.title}</h1>
+                    <p className="lead mt-3 mark">
+                        Written by{' '}
+                        <Link href={`/profile/${blog.postedBy.username}`}>
+                            <a>{blog.postedBy.username}</a>
+                        </Link>{' '}
+                        | Published {moment(blog.updatedAt).fromNow()}
+                    </p>
+                  </section>
+                    <section id="article-container">
+                        <div>{renderHTML(blog.body)}</div>
                     </section>
+                  {/*<div id="article-container">
+                      <h4 className="text-center pt-5 pb-5 h2">Related blogs</h4>
+                      <div className="row">{showRelatedBlog()}</div>
+                  </div>*/}
                 </main>
+              </div>
             </Layout>
         </React.Fragment>
     );

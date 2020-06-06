@@ -20,21 +20,20 @@ const HomeCard = ({ blog }) => {
 
     return (
         <div>
+          <section>
+            <Link href={`/blogs/${blog.slug}`}>
+              <span>
+                <a className="home-card-read-more">Read More</a>
+              </span>
+            </Link>
+          </section>
           <header>
-                <Link href={`/blogs/${blog.slug}`}>
-                    <a>
-                        <h2 id="home-card-title" style={{ color: "white", fontFamily: "'Alegreya SC', serif"}}>{blog.title}</h2>
-                    </a>
-                </Link>
-            </header>
-            {/*<section>
-
-                <Link href={`/blogs/${blog.slug}`}>
-                  <span>
-                    <a className="pt-2">Read More</a>
-                  </span>
-                </Link>
-            </section>*/}
+              <Link href={`/blogs/${blog.slug}`}>
+                  <a>
+                      <h2 id="home-card-title" style={{ color: "white", fontFamily: "'Alegreya SC', serif"}}>{blog.title}</h2>
+                  </a>
+              </Link>
+          </header>
         </div>
     );
 };

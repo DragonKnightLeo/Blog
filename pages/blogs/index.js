@@ -64,9 +64,8 @@ const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
 
     const showAllBlogs = () => {
         return blogs.map((blog, i) => {
-            // ()
             return (
-                <article key={i}>
+                <article className="card-blog-container" key={i}>
                     <Card blog={blog} />
                     <hr />
                 </article>
@@ -77,7 +76,7 @@ const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
     const showAllCategories = () => {
         return categories.map((c, i) => (
             <Link href={`/categories/${c.slug}`} key={i}>
-                <a className="btn btn-primary mr-1 ml-1 mt-3">{c.name}</a>
+                <a className="article-button">{c.name}</a>
             </Link>
         ));
     };
@@ -85,7 +84,7 @@ const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
     const showAllTags = () => {
         return tags.map((t, i) => (
             <Link href={`/tags/${t.slug}`} key={i}>
-                <a className="btn btn-outline-primary mr-1 ml-1 mt-3">{t.name}</a>
+                <a id="article-tag-margin-top" className="article-button">{t.name}</a>
             </Link>
         ));
     };
