@@ -49,14 +49,22 @@ const SingleBlog = ({ blog, query }) => {
     const showBlogCategories = blog =>
         blog.categories.map((c, i) => (
             <Link key={i} href={`/categories/${c.slug}`}>
-                <a className="btn" style={{ color: "white", fontFamily: 'Abel'}}>{c.name}</a>
+                <a className="btn" style={{
+                  color: "white",
+                  fontFamily: 'Abel',
+                  fontSize: "0.75rem",
+                  textTransform: "lowercase"}}>{c.name}</a>
             </Link>
         ));
 
     const showBlogTags = blog =>
         blog.tags.map((t, i) => (
             <Link key={i} href={`/tags/${t.slug}`}>
-                <a className="btn" style={{ color: "white", fontFamily: 'Abel'}}>{t.name}</a>
+                <a className="btn" style={{
+                  color: "white",
+                  fontFamily: 'Abel',
+                  fontSize: "0.75rem",
+                  textTransform: "lowercase"}}>{t.name}</a>
             </Link>
         ));
 
@@ -76,25 +84,15 @@ const SingleBlog = ({ blog, query }) => {
             <Layout>
               <div id="article-layout">
               <HomeBar />
-                <div id="article-background"><img id="article-background-image" src="../static/images/android.jpg"></img></div>
-                <main id="article">
-                  <section id="article-container-img">
-                      <div className="row" style={{ marginTop: '-30px' }}>
-                          <img
-                              src={`${API}/blog/photo/${blog.slug}`}
-                              alt={blog.title}
-                              className="img img-fluid featured-image"
-                          />
-                      </div>
-                  </section>
+                <main id="article"></main>
                   <section id="article-container-header">
-                    <div style={{ color: "white" }}>
+                    <div id="article-tags" style={{ color: "white"}}>
                         {showBlogCategories(blog)}
                         /
                         {showBlogTags(blog)}
                     </div>
-                    <h1 className="spb-3 pt-3 text-centers" style={{ color: "white"}}>{blog.title}</h1>
-                    <p className="lead mt-3 mark">
+                    <h1 className=" pb-2 text-centers" style={{ color: "white"}}>{blog.title}</h1>
+                    <p className="mt-2 mark" id="article-written">
                         Written by{' '}
                         <Link href={`/profile/${blog.postedBy.username}`}>
                             <a>{blog.postedBy.username}</a>
@@ -102,14 +100,22 @@ const SingleBlog = ({ blog, query }) => {
                         | Published {moment(blog.updatedAt).fromNow()}
                     </p>
                   </section>
-                    <section id="article-container">
-                        <div>{renderHTML(blog.body)}</div>
-                    </section>
-                  {/*<div id="article-container">
-                      <h4 className="text-center pt-5 pb-5 h2">Related blogs</h4>
+                  <section id="article-container-img">
+                      <div className="row" style={{  }}>
+                          <img
+                              src={`${API}/blog/photo/${blog.slug}`}
+                              alt={blog.title}
+                              className="img img-fluid featured-image"
+                          />
+                      </div>
+                  </section>
+                  <section id="article-container">
+                      <div>{renderHTML(blog.body)}</div>
+                  </section>
+                  <div id="article-related-blogs">
+                      <h4 className="text-center h2">Related blogs</h4>
                       <div className="row">{showRelatedBlog()}</div>
-                  </div>*/}
-                </main>
+                  </div>
               </div>
             </Layout>
         </React.Fragment>

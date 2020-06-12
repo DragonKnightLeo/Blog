@@ -20,6 +20,7 @@ const HomeCard = ({ blog }) => {
 
     return (
         <div>
+          <div id="home-card-img" style={{ backgroundImage: `url(${API}/blog/photo/${blog.slug})`}}></div>
           <section>
             <Link href={`/blogs/${blog.slug}`}>
               <span>
@@ -30,7 +31,7 @@ const HomeCard = ({ blog }) => {
           <header>
               <Link href={`/blogs/${blog.slug}`}>
                   <a>
-                      <h2 id="home-card-title" style={{ color: "white", fontFamily: "'Alegreya SC', serif"}}>{blog.title}</h2>
+                    <h2 id="home-card-title" style={{ color: "white", fontFamily: "'Alegreya SC', serif"}}>{blog.title}</h2>
                   </a>
               </Link>
           </header>

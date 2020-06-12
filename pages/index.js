@@ -40,10 +40,12 @@ const Index = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
   const showAllBlogs = () => {
       return blogs.map((blog, i) => {
           return (
-              <article id="home-card" style={{ backgroundImage: `url(${API}/blog/photo/${blog.slug})`, backgroundPosition: "center"}} key={i}>
-                  <HomeCard blog={blog} />
-                  <hr />
+            <Link href={`/blogs/${blog.slug}`}>
+              <article id="home-card" key={i}>
+                <HomeCard blog={blog} />
+                <hr/>
               </article>
+            </Link>
           );
       });
   };
@@ -58,7 +60,6 @@ const Index = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
       <Layout>
           <article className="home-container">
             <section>
-              <div className="container">
                 <Header/>
                   <img id="home-img" src="static/images/robot.png" alt="robot"/>
                   <h3 id="min-title">HERE AND NOW</h3>
@@ -73,7 +74,6 @@ const Index = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
                   <div className="vr-1"></div>
                   <div className="vr-2"></div>
                   <div className="vr-3"></div>
-              </div>
             </section>
           </article>
           <main id="new-article-list">
